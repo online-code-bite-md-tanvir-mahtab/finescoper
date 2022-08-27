@@ -1,0 +1,132 @@
+{% include 'header.html' %}
+<!--
+Start About Section
+==================================== -->
+<!--
+Start About Section
+==================================== -->
+<section class="about-2 section bg-gray" id="about">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6 align-self-center mb-4 mb-md-0">
+                <div class="align-self-center">
+    				<h2>A New Kind of Digital Currency to change the world what we think</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae deleniti ipsa labore necessitatibus culpa veritatis quo accusantium, neque enim ea ad eaque iure, quas tempore velit, quibusdam dolor illo! Explicabo.</p>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quisquam maiores iste soluta, nihil dolorem?</p>
+                    <a href="#" class="btn btn-main">Learn More</a>
+                </div>
+            </div>		
+		</div>
+	</div>
+</section>
+<section class="container">
+	<form method='post' action="/tracker">
+		<div class="form-group">
+		  <label for="url">Product Url:</label>
+		  <input type="url" class="form-control" id="url" name="url">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	  </form>
+</section>
+<section class="container">
+	<div class="container">
+        
+        <div class="row" id='all'>
+            <div class="col-md-12">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active"
+                         id="pills-home"
+                         role="tabpanel"
+                         aria-labelledby="pills-home-tab">
+                        <div class="row">
+                            <div class="page-content page-container" id="page-content">
+                                <div class="padding">
+                                    <div class="row container d-flex justify-content-center">
+                                        <div class="col-lg-16 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>File Name</th>
+                                                                    <th>Price</th>
+                                                                    <th>Sell</th>
+                                                                    <th>Time</th>
+                                                                    <th>Delete</th>
+                                                                    <th>graph</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for i in range(i) %}
+                                                                    {% if enter %}
+                                                                        {% if data['price'][i] <= max_value  and data['price'][i] >= min_value %}
+                                                                            {% if max_review == nan and min_review== nan %}
+                                                                                <tr>
+                                                                                    {{ max_data }}
+                                                                                    <td>{{ data['name'][i] }}</td>
+                                                                                    <td>{{ data['file_name'][i] }}</td>
+                                                                                    <td>{{ data['price'][i] }}</td>
+                                                                                    <td>{{ data['sell'][i] }}</td>
+                                                                                    <td>{{ data['time'][i]}}</td>
+                                                                                    <td><a href="{{ url_for('delete_product',index=i)}}" type="button" class="btn btn-danger">Delete</a>                                                                                    </td>
+                                                                                    <td><a href="{{ url_for('show_graph',index=i)}}" type="button" class="btn btn-success">View</a></td>
+                                                                                </tr>
+                                                                            {% else %}
+                                                                                {% if min_review>=data['review'][i] and max_review<=data['review'][i] %}
+                                                                                <tr>
+                                                                                    {{ max_data }}
+                                                                                    <td>{{ data['name'][i] }}</td>
+                                                                                    <td>{{ data['file_name'][i] }}</td>
+                                                                                    <td>{{ data['price'][i] }}</td>
+                                                                                    <td>{{ data['sell'][i] }}</td>
+                                                                                    <td>{{ data['time'][i]}}</td>
+                                                                                    <td><a href="{{ url_for('delete_product',index=i)}}" type="button" class="btn btn-danger">Delete</a>                                                                                    </td>
+                                                                                    <td><a href="{{ url_for('show_graph',index=i)}}" type="button" class="btn btn-success">View</a></td>
+                                                                                </tr>
+                                                                                {% else %}
+                                                                                <tr>
+                                                                                    {{ max_data }}
+                                                                                    <td>{{ data['name'][i] }}</td>
+                                                                                    <td>{{ data['file_name'][i] }}</td>
+                                                                                    <td>{{ data['price'][i] }}</td>
+                                                                                    <td>{{ data['sell'][i] }}</td>
+                                                                                    <td>{{ data['time'][i]}}</td>
+                                                                                    <td><a href="{{ url_for('delete_product',index=i)}}" type="button" class="btn btn-danger">Delete</a>                                                                                    </td>
+                                                                                    <td><a href="{{ url_for('show_graph',index=i)}}" type="button" class="btn btn-success">View</a></td>
+                                                                                </tr>
+                                                                                {% endif %}
+                                                                            {% endif %}
+                                                                        {% endif %}
+                                                                    {% else %}
+                                                                    <tr>
+                                                                        {{ max_data }}
+                                                                        <td>{{ data['name'][i] }}</td>
+                                                                        <td>{{ data['file_name'][i] }}</td>
+                                                                        <td>{{ data['price'][i] }}</td>
+                                                                        <td>{{ data['sell'][i] }}</td>
+                                                                        <td>{{ data['time'][i]}}</td>
+                                                                        <td><a href="{{ url_for('delete_product',index=i)}}" type="button" class="btn btn-danger">Delete</a>                                                                                    </td>
+                                                                        <td><a href="{{ url_for('show_graph',index=i)}}" type="button" class="btn btn-success">View</a></td>
+                                                                    </tr>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+{% include 'footer.html' %}

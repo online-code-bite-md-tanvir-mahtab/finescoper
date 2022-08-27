@@ -1,0 +1,211 @@
+{% include 'header.html' %}
+<!-- Start Pricing section
+		=========================================== -->
+<section class="pricing-table section" id="pricing">
+
+    <div class="container">
+        <form action='/research' method='post' class="custom-pricing-form">
+            <div class="row">
+                <div class="col-sm">
+                  <div class="col-md-12">
+                      <input name='c1'
+                             type="text"
+                             class="form-control mb-2"
+                             id="inlineFormInput"
+                             placeholder="Select one or multiple">
+                  </div>
+                  <div class="row form-group form-check">
+                    <input style="width:20px;" type="checkbox" class="col form-check-input" id="exampleCheck1">
+                    <label class="p-3 col-md-4 sm-4 form-check-label" for="exampleCheck1">beauty</label>
+                  </div>
+                  <div class="row form-group form-check">
+                    <input style="width:20px;" type="checkbox" class="col form-check-input" id="exampleCheck2">
+                    <label class="p-3 col-md-4 sm-4 form-check-label" for="exampleCheck2">fashion-sundries                    </label>
+                  </div>
+                  <div class="row form-group form-check">
+                    <input style="width:20px;" type="checkbox" class="col form-check-input" id="exampleCheck3">
+                    <label class="p-3 col-md-4 sm-4 form-check-label" for="exampleCheck3">child-birth</label>
+                  </div>
+                  <div class="row form-group form-check">
+                    <input style="width:20px;" type="checkbox" class="col form-check-input" id="exampleCheck1">
+                    <label class="p-3 col-md-4 sm-4 form-check-label" for="exampleCheck4">food                    </label>
+                  </div>
+                  <div class="row form-group form-check">
+                    <input style="width:20px;" type="checkbox" class="col form-check-input" id="exampleCheck2">
+                    <label class="p-3 col-md-4 sm-4 form-check-label" for="exampleCheck5">kitchen</label>
+                  </div>
+                  <div class="row form-group form-check">
+                    <input style="width:20px;" type="checkbox" class="col form-check-input" id="exampleCheck3">
+                    <label class="p-3 col-md-4 sm-4 form-check-label" for="exampleCheck6">life</label>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="col-md-12">
+                      <input name='c1'
+                             type="text"
+                             class="form-control mb-2"
+                             id="inlineFormInput"
+                             placeholder="Filters">
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4">
+                          <input name='maxPrice'
+                             type="text"
+                             class="form-control mb-2"
+                             id="inlineFormInput"
+                             placeholder="Maximum Price">
+                      </div>
+                      <div class="col-md-4">
+                          <input name='minPrice'
+                             type="text"
+                             class="form-control mb-2"
+                             id="inlineFormInput2"
+                             placeholder="Minimum Price">
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4">
+                          <input name='maxReview'
+                                 type="text"
+                                 class="form-control mb-2"
+                                 id="inlineFormInput"
+                                 placeholder="Maximum Review">
+                      </div>
+                      <div class="col-md-4">
+                          <input name='minReview'
+                                 type="text"
+                                 class="form-control mb-2"
+                                 id="inlineFormInput2"
+                                 placeholder="Minimum Review">
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-8">
+                        <input name='maxReview'
+                               type="text"
+                               class="form-control mb-2"
+                               id="inlineFormInput"
+                               placeholder="Date First available">
+                    </div>
+                    <div class="col-sm-8">
+                        <select class="form-select" aria-label="Default select example" name="select">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                    </div>
+                  </div>
+                  <div>
+
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4">
+                          <input name='c2'
+                                 type="text"
+                                 class="form-control mb-2"
+                                 id="inlineFormInput2"
+                                 placeholder="Keyworld">
+                      </div>
+                      <div class="col-md-2">
+                          <button type="submit" class="btn btn-main mb-2">Search</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </form>
+        
+      </div>
+    <div class="container">
+        
+        <div class="row" id='all'>
+            <div class="col-md-12">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active"
+                         id="pills-home"
+                         role="tabpanel"
+                         aria-labelledby="pills-home-tab">
+                        <div class="row">
+                            <div class="page-content page-container" id="page-content">
+                                <div class="padding">
+                                    <div class="row container d-flex justify-content-center">
+                                        <div class="col-lg-8 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Image</th>
+                                                                    <th>Name</th>
+                                                                    <th>Price</th>
+                                                                    <th>Review</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for i in range(i) %}
+                                                                    {% if enter %}
+                                                                        {% if data['price'][i] <= max_value  and data['price'][i] >= min_value %}
+                                                                            {% if max_review == nan and min_review== nan %}
+                                                                                <tr>
+                                                                                    {{ max_data }}
+                                                                                    <td>
+                                                                                        <img style='background-image:url({{ data['img'][i] }});'>
+                                                                                    </td>
+                                                                                    <td>{{ data['name'][i] }}</td>
+                                                                                    <td>{{ data['price'][i] }}</td>
+                                                                                    <td>{{ data['review'][i] }}</td>
+                                                                                </tr>
+                                                                            {% else %}
+                                                                                {% if min_review>=data['review'][i] and max_review<=data['review'][i] %}
+                                                                                    <tr>
+                                                                                        {{ max_data }}
+                                                                                        <td>
+                                                                                            <img style='background-image:url({{ data['img'][i] }});'>
+                                                                                        </td>
+                                                                                        <td>{{ data['name'][i] }}</td>
+                                                                                        <td>{{ data['price'][i] }}</td>
+                                                                                        <td>{{ data['review'][i] }}</td>
+                                                                                    </tr>
+                                                                                {% else %}
+                                                                                    <tr>
+                                                                                        {{ max_data }}
+                                                                                        <td>
+                                                                                            <img style='background-image:url({{ data['img'][i] }});'>
+                                                                                        </td>
+                                                                                        <td>{{ data['name'][i] }}</td>
+                                                                                        <td>{{ data['price'][i] }}</td>
+                                                                                        <td>{{ data['review'][i] }}</td>
+                                                                                    </tr>
+                                                                                {% endif %}
+                                                                            {% endif %}
+                                                                        {% endif %}
+                                                                    {% else %}
+                                                                        <tr>
+                                                                            {{ max_data }}
+                                                                            <td>
+                                                                                <img style='background-image:url({{ data['img'][i] }});'>
+                                                                            </td>
+                                                                            <td>{{ data['name'][i] }}</td>
+                                                                            <td>{{ data['price'][i] }}</td>
+                                                                            <td>{{ data['review'][i] }}</td>
+                                                                        </tr>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End section -->
+    {% include 'footer.html' %}
